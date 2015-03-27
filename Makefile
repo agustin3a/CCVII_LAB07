@@ -40,8 +40,10 @@ JC = javac
 
 CLASSES = \
 	Simulator.java \
-	Parser.java \
-	Process.java
+	Scheduler.java \
+	Process.java \
+	Burst.java \
+	Parser.java
 
 
 #

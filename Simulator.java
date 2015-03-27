@@ -4,11 +4,15 @@ import java.io.*;
 
 public class Simulator {
 
+	public static Scheduler scheduler;
+	public static Parser parser;
+	public static int quantum;
+
 	public static void main(String[] args) {
 		String textfile = "";
 		String text = null;
 		File file;
-		Parser parser;
+
 		if(args.length == 0) {
 			System.out.println("HELP");
 			return;
@@ -34,7 +38,21 @@ public class Simulator {
 	    }
 		}
 		parser = new Parser(textfile);
-		parser.parseText();
+		scheduler = new Scheduler(parser.parseText());
+		quantum = parser.getQuantum();
+		start();
 		//System.out.println(textfile);
 	}
+
+
+	public static void start() {
+		int time = 0;
+
+		
+		scheduler.nextProcess(time);
+
+	}
+
+
+
 }
